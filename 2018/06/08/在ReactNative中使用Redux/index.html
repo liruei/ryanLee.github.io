@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在ReactNative中使用Redux一 什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/06/08/在ReactNative中使用Redux/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在ReactNative中使用Redux一 什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux R">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1745101-f0e887a2e6fff571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://img-blog.csdn.net/20171124152337323?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFvYWlxaWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/24/15fec100e3242019">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/8/7/c8282911b3cccff0020b3536bb69fa5c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1281633-30f9aa1b2b1e74e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2018-06-08T07:14:20.484Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="在ReactNative中使用Redux一 什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux R">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1745101-f0e887a2e6fff571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/08/在ReactNative中使用Redux/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/08/在ReactNative中使用Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-08 15:13:37 / Modified: 15:14:20" itemprop="dateCreated datePublished" datetime="2018-06-08T15:13:37+08:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="在ReactNative中使用Redux"><a href="#在ReactNative中使用Redux" class="headerlink" title="在ReactNative中使用Redux"></a>在ReactNative中使用Redux</h2><h2 id="一-什么是Redux"><a href="#一-什么是Redux" class="headerlink" title="一 什么是Redux"></a>一 什么是Redux</h2><p>Redux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话：</p>
+<p>1.Web 应用是一个状态机，视图与状态是一一对应的。</p>
+<p>2.所有的状态，保存在一个对象里面。</p>
+<p><strong>在使用Redux之前，我推荐看看这篇文章:</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22597353" target="_blank" rel="noopener">【译】也许你不必使用 Redux</a></p>
+<p><a href="https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" target="_blank" rel="noopener">You Might Not Need Redux</a></p>
+<p><strong>Redux数据流程图</strong><br>Redux将应用的state状态集中管理<br>只能通过action来改变state的状态<br>通过reducer将state和action连接起来，根据action的类型创建相应新的state<br>界面根据新的state来更新界面。<br>数据在整个流程中是单向流动的，数据与界面绑定，而又与界面区分开来，方便单独测试。<br>我们来根据以上设计思路来讲讲Redux的几个核心概念。<br><img src="https://upload-images.jianshu.io/upload_images/1745101-f0e887a2e6fff571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<h3 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h3><p>Redux中的store就是上文中的状态机，或者说状态容器，储存着应用的所状态，而每个状态则与对应的视图一一对应。<br>比如加载一个网络请求，我们有三个state, 加载中，加载成功，加载失败，这三个状态对应这三种视图。<br>请求中的状态下，视图应该显示加载中，请求成功，则视图应该加载数据，请求失败，则视图需要显示加载失败页面。</p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>State对象包含所有数据，如果想得到某个时点的数据，就要对Store生成快照，这种时点的数据集合，就叫做State。<br>我们在开发过程中通过store获取state就是这样的原理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">const store = createStore(fn);</span><br></pre></td></tr></table></figure>
+<h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><p>State 的变化，会导致 View 的变化。但是用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。比如说进行一个网络请求，你在请求过程中，需要一个action告诉view,你正在请求中，你需要先把这个请求发送给Reducer。<br>如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function itemsIsLoading(bool) &#123;</span><br><span class="line">   return &#123;</span><br><span class="line">       type: &apos;ITEMS_IS_LOADING&apos;,</span><br><span class="line">       isLoading: bool</span><br><span class="line">   &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><p>Store收到Action以后，必须给出一个新的State，这样View才会发生变化。这种State的计算过程就叫做Reducer。Reducer是一个函数，它接受Action和当前State作为参数，返回一个新的State。同样是网络请求，Reducer收到表达网络正在请求中的Action和旧的state，返回一个新的State。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export function itemsIsLoading(state = false, action) &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case &apos;ITEMS_IS_LOADING&apos;:</span><br><span class="line">            return action.isLoading;</span><br><span class="line">        default:</span><br><span class="line">            return state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Dispatch"><a href="#Dispatch" class="headerlink" title="Dispatch"></a>Dispatch</h3><p>store.dispatch()是 View 发出 Action 的唯一方法。一般调用方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.dispatch(action)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h3><p>Middleware 其实是 action 抽象出来的，是对 action 的进一步封装，用来完成异步 API调用等其它事情。可以通过中间件增加异步操作，打印Action，优化网络请求等操作。</p>
+<h2 id="二-Redux能为ReactNative开发带来什么"><a href="#二-Redux能为ReactNative开发带来什么" class="headerlink" title="二 Redux能为ReactNative开发带来什么"></a>二 Redux能为ReactNative开发带来什么</h2><p><img src="https://img-blog.csdn.net/20171124152337323?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFvYWlxaWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="三-在ReactNative中如何使用Redux"><a href="#三-在ReactNative中如何使用Redux" class="headerlink" title="三 在ReactNative中如何使用Redux"></a>三 在ReactNative中如何使用Redux</h2><h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>在ReactNative我们使用React-Redux来实现Redux思想。<br><img src="https://user-gold-cdn.xitu.io/2017/11/24/15fec100e3242019" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/8/7/c8282911b3cccff0020b3536bb69fa5c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<h5 id="1-使用Provider在根组件注入Store"><a href="#1-使用Provider在根组件注入Store" class="headerlink" title="1.使用Provider在根组件注入Store"></a>1.使用Provider在根组件注入Store</h5><p><img src="https://upload-images.jianshu.io/upload_images/1281633-30f9aa1b2b1e74e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""><br>Provider功能主要为以下两点：</p>
+<ol>
+<li>在原应用组件上包裹一层，使原来整个应用成为Provider的子组件，</li>
+<li>接收Redux的store作为props，并将store传到子组件中，当store发生变化时，更新store。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    return (&lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;AppNavigations/&gt;</span><br><span class="line">    &lt;/Provider&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="2-容器组件使用connect-方法连接Redux-可以使组件很方便的调用action-获取state。"><a href="#2-容器组件使用connect-方法连接Redux-可以使组件很方便的调用action-获取state。" class="headerlink" title="2.容器组件使用connect()方法连接Redux,可以使组件很方便的调用action,获取state。"></a>2.容器组件使用connect()方法连接Redux,可以使组件很方便的调用action,获取state。</h5><p>connect是一个函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default function connect(mapStateToProps, mapDispatchToProps, mergeProps, options = &#123;&#125;) &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>mapStateToProps：传入所有state，返回指定的state数据。</p>
+<p>mapDispatchToProps：传入dispatch，返回使用bindActionCreators()绑定的action方法。我们不再这里讨论bindActionCreators的用法，这个知识将会放到redux解析的文章中。</p>
+<p>bindActionCreators：，是通过dispatch将action包裹起来，这样可以通过bindActionCreators创建的方法，直接调用dispatch(action)(隐式调用）</p>
+<p>mergeProps：用于自定义merge流程，将stateProps 和 dispatchProps merge 到parentProps之后赋给组件。通常情况下，你可以不传这个参数，connect会使用 Object.assign。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function mergeProps(stateProps, dispatchProps, ownProps) &#123;</span><br><span class="line">  return Object.assign(&#123;&#125;, ownProps, &#123;</span><br><span class="line">    todos: stateProps.todos[ownProps.userId],</span><br><span class="line">    addTodo: (text) =&gt; dispatchProps.addTodo(ownProps.userId, text)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>options：通过配置项可以更加详细的定义connect的行为，通常只需要执行默认值。</p>
+<h5 id="3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"><a href="#3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。" class="headerlink" title="3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"></a>3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。</h5><p><strong>mapStateToProps</strong>是一个函数，用于建立组件跟 store 的 state 的映射关系，传入mapStateToProps之后，会订阅store的状态改变，在每次 store 的 state 发生变化的时候，都会被调用。</p>
+<p>ownProps代表组件本身的props，如果写了第二个参数ownProps，那么当prop发生变化的时候，mapStateToProps也会被调用。例如，当 props接收到来自父组件一个小小的改动，那么你所使用的 ownProps 参数，mapStateToProps 都会被重新计算）。mapStateToProps可以不传，如果不传，组件不会监听store的变化，也就是说Store的更新不会引起UI的更新。<br>如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    todoList: state.todoList</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>mapDispatchToProps</strong>用于建立组件跟store.dispatch的映射关系,可以是一个object，也可以传入函数。如果mapDispatchToProps是一个函数，它可以传入dispatch,ownProps, 定义UI组件如何发出action，实际上就是要调用dispatch这个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    increase: (...args) =&gt; dispatch(actions.increase(...args)),</span><br><span class="line">    decrease: (...args) =&gt; dispatch(actions.decrease(...args))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="四-文章推荐"><a href="#四-文章推荐" class="headerlink" title="四 文章推荐"></a>四 文章推荐</h2><p><a href="https://github.com/kenberkeley/redux-simple-tutorial" target="_blank" rel="noopener">Redux 简明教程</a></p>
+<p><a href="https://segmentfault.com/a/1190000008741380" target="_blank" rel="noopener">redux在react-native上使用</a></p>
+<p><a href="http://www.redux.org.cn/docs/react-redux/api.html" target="_blank" rel="noopener">React-Redux中文文档</a></p>
+<p><a href="https://medium.com/react-native-training/bitcoin-ripple-ethereum-price-checker-with-react-native-redux-e9d076037092" target="_blank" rel="noopener">Learn how to build a Redux + React Native cryptocurrency app</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/08/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在ReactNative中使用Redux"><span class="nav-number">1.</span> <span class="nav-text">在ReactNative中使用Redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-什么是Redux"><span class="nav-number">2.</span> <span class="nav-text">一 什么是Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">2.1.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">2.2.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action"><span class="nav-number">2.3.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer"><span class="nav-number">2.4.</span> <span class="nav-text">Reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatch"><span class="nav-number">2.5.</span> <span class="nav-text">Dispatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Middleware"><span class="nav-number">2.6.</span> <span class="nav-text">Middleware</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-Redux能为ReactNative开发带来什么"><span class="nav-number">3.</span> <span class="nav-text">二 Redux能为ReactNative开发带来什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-在ReactNative中如何使用Redux"><span class="nav-number">4.</span> <span class="nav-text">三 在ReactNative中如何使用Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux"><span class="nav-number">4.1.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用Provider在根组件注入Store"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">1.使用Provider在根组件注入Store</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-容器组件使用connect-方法连接Redux-可以使组件很方便的调用action-获取state。"><span class="nav-number">4.1.0.2.</span> <span class="nav-text">2.容器组件使用connect()方法连接Redux,可以使组件很方便的调用action,获取state。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"><span class="nav-number">4.1.0.3.</span> <span class="nav-text">3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-文章推荐"><span class="nav-number">5.</span> <span class="nav-text">四 文章推荐</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
