@@ -339,7 +339,7 @@
                 
               
 
-              <time title="创建时间：2018-06-12 09:27:49 / 修改时间：09:50:44" itemprop="dateCreated datePublished" datetime="2018-06-12T09:27:49+08:00">2018-06-12</time>
+              <time title="创建时间：2018-06-12 09:27:49 / 修改时间：10:35:25" itemprop="dateCreated datePublished" datetime="2018-06-12T09:27:49+08:00">2018-06-12</time>
             
 
             
@@ -428,7 +428,8 @@
 <h5 id="3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"><a href="#3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。" class="headerlink" title="3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"></a>3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。</h5><p><strong>mapStateToProps</strong>是一个函数，用于建立组件跟 store 的 state 的映射关系，传入mapStateToProps之后，会订阅store的状态改变，在每次 store 的 state 发生变化的时候，都会被调用。</p>
 <p>ownProps代表组件本身的props，如果写了第二个参数ownProps，那么当prop发生变化的时候，mapStateToProps也会被调用。例如，当 props接收到来自父组件一个小小的改动，那么你所使用的 ownProps 参数，mapStateToProps 都会被重新计算）。mapStateToProps可以不传，如果不传，组件不会监听store的变化，也就是说Store的更新不会引起UI的更新。<br>如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    todoList: state.todoList</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>mapDispatchToProps</strong>用于建立组件跟store.dispatch的映射关系,可以是一个object，也可以传入函数。如果mapDispatchToProps是一个函数，它可以传入dispatch,ownProps, 定义UI组件如何发出action，实际上就是要调用dispatch这个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const mapDispatchToProps = (dispatch, ownProps) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    increase: (...args) =&gt; dispatch(actions.increase(...args)),</span><br><span class="line">    decrease: (...args) =&gt; dispatch(actions.decrease(...args))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/kenberkeley/redux-simple-tutorial" target="_blank" rel="noopener">Redux 简明教程</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/ryanLees/ReactNativeReduxDemo" target="_blank" rel="noopener">ReduxDemo</a></p>
+<p><a href="https://github.com/kenberkeley/redux-simple-tutorial" target="_blank" rel="noopener">Redux 简明教程</a></p>
 <p><a href="https://segmentfault.com/a/1190000008741380" target="_blank" rel="noopener">redux在react-native上使用</a></p>
 <p><a href="http://www.redux.org.cn/docs/react-redux/api.html" target="_blank" rel="noopener">React-Redux中文文档</a></p>
 <p><a href="https://medium.com/react-native-training/bitcoin-ripple-ethereum-price-checker-with-react-native-redux-e9d076037092" target="_blank" rel="noopener">Learn how to build a Redux + React Native cryptocurrency app</a></p>
