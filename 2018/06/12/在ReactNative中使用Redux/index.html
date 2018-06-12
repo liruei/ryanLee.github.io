@@ -108,20 +108,30 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="时光的痕迹">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在ReactNative中使用Redux什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux Red">
+<meta name="keywords" content="ReactNative,Redux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在ReactNative中使用Redux">
+<meta property="og:url" content="http://yoursite.com/2018/06/12/在ReactNative中使用Redux/index.html">
 <meta property="og:site_name" content="时光的痕迹">
+<meta property="og:description" content="在ReactNative中使用Redux什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux Red">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1745101-f0e887a2e6fff571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/24/15fec100e3242019">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/8/7/c8282911b3cccff0020b3536bb69fa5c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1281633-30f9aa1b2b1e74e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2018-06-12T01:50:44.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时光的痕迹">
+<meta name="twitter:title" content="在ReactNative中使用Redux">
+<meta name="twitter:description" content="在ReactNative中使用Redux什么是ReduxRedux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话： 1.Web 应用是一个状态机，视图与状态是一一对应的。 2.所有的状态，保存在一个对象里面。 在使用Redux之前，我推荐看看这篇文章: 【译】也许你不必使用 Redux You Might Not Need Redux Red">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1745101-f0e887a2e6fff571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/12/在ReactNative中使用Redux/"/>
 
 
 
@@ -131,7 +141,7 @@
   };
 </script>
 
-  <title>时光的痕迹</title>
+  <title>在ReactNative中使用Redux | 时光的痕迹</title>
   
 
 
@@ -178,8 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,7 +225,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
@@ -276,9 +285,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -310,11 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/12/在ReactNative中使用Redux/" itemprop="url">
-                  在ReactNative中使用Redux
-                </a>
+          <h1 class="post-title" itemprop="name headline">在ReactNative中使用Redux
               
             
           </h1>
@@ -395,9 +400,7 @@
       
 
       
-        
-          
-            <h2 id="在ReactNative中使用Redux"><a href="#在ReactNative中使用Redux" class="headerlink" title="在ReactNative中使用Redux"></a>在ReactNative中使用Redux</h2><h2 id="什么是Redux"><a href="#什么是Redux" class="headerlink" title="什么是Redux"></a>什么是Redux</h2><p>Redux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话：</p>
+        <h2 id="在ReactNative中使用Redux"><a href="#在ReactNative中使用Redux" class="headerlink" title="在ReactNative中使用Redux"></a>在ReactNative中使用Redux</h2><h2 id="什么是Redux"><a href="#什么是Redux" class="headerlink" title="什么是Redux"></a>什么是Redux</h2><p>Redux是一种应用状态管理架构，提供可预测化的状态管理。它是一种理念，而不仅仅是一个框架。它的设计思路就两句话：</p>
 <p>1.Web 应用是一个状态机，视图与状态是一一对应的。</p>
 <p>2.所有的状态，保存在一个对象里面。</p>
 <p><strong>在使用Redux之前，我推荐看看这篇文章:</strong></p>
@@ -433,8 +436,6 @@
 <p><a href="http://www.redux.org.cn/docs/react-redux/api.html" target="_blank" rel="noopener">React-Redux中文文档</a></p>
 <p><a href="https://medium.com/react-native-training/bitcoin-ripple-ethereum-price-checker-with-react-native-redux-e9d076037092" target="_blank" rel="noopener">Learn how to build a Redux + React Native cryptocurrency app</a></p>
 
-          
-        
       
     </div>
 
@@ -452,14 +453,22 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -469,14 +478,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -497,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +594,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在ReactNative中使用Redux"><span class="nav-number">1.</span> <span class="nav-text">在ReactNative中使用Redux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Redux"><span class="nav-number">2.</span> <span class="nav-text">什么是Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">2.1.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">2.2.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action"><span class="nav-number">2.3.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer"><span class="nav-number">2.4.</span> <span class="nav-text">Reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatch"><span class="nav-number">2.5.</span> <span class="nav-text">Dispatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Middleware"><span class="nav-number">2.6.</span> <span class="nav-text">Middleware</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在ReactNative中如何使用Redux"><span class="nav-number">3.</span> <span class="nav-text">在ReactNative中如何使用Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux"><span class="nav-number">3.1.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用Provider在根组件注入Store"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">1.使用Provider在根组件注入Store</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-容器组件使用connect-方法连接Redux-可以使组件很方便的调用action-获取state。"><span class="nav-number">3.1.0.2.</span> <span class="nav-text">2.容器组件使用connect()方法连接Redux,可以使组件很方便的调用action,获取state。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。"><span class="nav-number">3.1.0.3.</span> <span class="nav-text">3.容器组件使用mapStateToProps和mapDispatchToProp与store中的stat的映射关系。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -705,6 +744,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
